@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "372629795840",
+    "firebase_url": "https://flutter-find-my-stuff-651a5-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "flutter-find-my-stuff-651a5",
+    "storage_bucket": "flutter-find-my-stuff-651a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:372629795840:android:040d6faef0d7104ce894e5",
+        "android_client_info": {
+          "package_name": "com.getx_uxdesign.flutter_getx_ux"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "372629795840-1iod2tbc0g3tsfsb5avjfh9778ammtvs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgnMWtzEDmOiQHJufttx-lQKPOtYcUdeY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "372629795840-1iod2tbc0g3tsfsb5avjfh9778ammtvs.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "372629795840-82c4l2v8a12veo17avuglre8031u8or6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.getxuxdesign.flutterGetxUx"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
