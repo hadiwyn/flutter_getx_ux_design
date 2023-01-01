@@ -63,7 +63,7 @@ class AddDataKehilanganView extends GetView<AddDataKehilanganController> {
                     controller: controller.nama_barangC,
                     decoration: InputDecoration(
                       icon: Icon(Icons.person),
-                      hintText: 'What do people call you?',
+                      hintText: 'masukkan nama barang',
                       labelText: 'Nama Barang',
                     ),
                     validator: (value) {
@@ -79,7 +79,7 @@ class AddDataKehilanganView extends GetView<AddDataKehilanganController> {
                     controller: controller.nama_pengaduC,
                     decoration: InputDecoration(
                       icon: Icon(Icons.person),
-                      hintText: 'What do people call you?',
+                      hintText: 'masukkan nama pengadu',
                       labelText: 'Nama Pengadu',
                     ),
                     validator: (value) {
@@ -112,7 +112,7 @@ class AddDataKehilanganView extends GetView<AddDataKehilanganController> {
                     decoration: InputDecoration(
                       enabled: false,
                       icon: Icon(Icons.person),
-                      hintText: 'What do people call you?',
+                      hintText: 'foto barang',
                       labelText: 'Foto Barang',
                     ),
                   ),
@@ -121,7 +121,7 @@ class AddDataKehilanganView extends GetView<AddDataKehilanganController> {
                     controller: controller.deskripsiC,
                     decoration: InputDecoration(
                       icon: Icon(Icons.person),
-                      hintText: 'What do people call you?',
+                      hintText: 'masukkan deskripsi',
                       labelText: 'Deskripsi',
                     ),
                     validator: (value) {
@@ -137,7 +137,7 @@ class AddDataKehilanganView extends GetView<AddDataKehilanganController> {
                     controller: controller.keyC,
                     decoration: InputDecoration(
                       icon: Icon(Icons.person),
-                      hintText: 'Digunakan untuk menghapus aduan',
+                      hintText: 'digunakan untuk menghapus aduan',
                       labelText: 'Kunci Penghapusan',
                     ),
                     validator: (value) {
