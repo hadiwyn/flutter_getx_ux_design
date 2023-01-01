@@ -44,9 +44,7 @@ class _ListVerticalState extends State<ListVertical> {
                 color: Color(0xFFEEEEEE),
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: Image.asset(
-                    'assets/image/dompet.png',
-                  ).image,
+                  image: Image.asset('assets/image/dompet.png').image,
                 ),
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
@@ -114,6 +112,7 @@ class _ListVerticalState extends State<ListVertical> {
                           fontWeight: FontWeight.normal,
                         ),
                         textAlign: TextAlign.justify,
+                        maxLines: 1,
                       ),
                     ),
                     Padding(

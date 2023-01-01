@@ -1,8 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'dart:io';
+import 'package:image_picker/image_picker.dart';
 
 class AddDataPenemuanController extends GetxController {
   late TextEditingController nama_barangC;
@@ -10,17 +13,35 @@ class AddDataPenemuanController extends GetxController {
   late TextEditingController no_tlpC;
   late TextEditingController keteranganC;
   late TextEditingController keyC;
+  late String imgUrl;
 
-  late GlobalKey<FormState> addDataPenemuan=GlobalKey<FormState>();
+  late GlobalKey<FormState> addDataPenemuan = GlobalKey<FormState>();
 
   DatabaseReference? dbRef;
 
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
+  void getImage() async {
+    final ImagePicker _picker = ImagePicker();
+    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+
+    if (image == null) return;
+    String uniqueName = DateTime.now().millisecondsSinceEpoch.toString();
+
+    Reference ref = FirebaseStorage.instance.ref().child("images");
+    Reference uploadImg = ref.child(uniqueName);
+
+    try {
+      await uploadImg.putFile(File(image!.path));
+      imgUrl = await uploadImg.getDownloadURL();
+    } catch (error) {}
+  }
+
   void addAduanPenemuan(
     String nama_barang,
     String nama_penemu,
     String no_tlp,
+    String? image,
     String keterangan,
     String key,
   ) {
@@ -34,6 +55,7 @@ class AddDataPenemuanController extends GetxController {
         "nama_penemu": nama_penemu,
         "no_tlp": no_tlp,
         "keterangan": keterangan,
+        "image": imgUrl,
         "key_validasi": key,
         "date": cdate2
       };

@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 
 class AddDataKehilanganController extends GetxController {
@@ -9,11 +13,31 @@ class AddDataKehilanganController extends GetxController {
   late TextEditingController no_tlpC;
   late TextEditingController deskripsiC;
   late TextEditingController keyC;
+  late String imgUrl = "";
+  late XFile? imgFile;
 
   DatabaseReference? dbRef;
 
+  void getImage() async {
+    final ImagePicker _picker = ImagePicker();
+    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+
+    if (image != null) {
+      imgFile = image;
+    }
+    String uniqueName = DateTime.now().millisecondsSinceEpoch.toString();
+
+    Reference ref = FirebaseStorage.instance.ref().child("images");
+    Reference uploadImg = ref.child(uniqueName);
+
+    try {
+      await uploadImg.putFile(File(image!.path));
+      imgUrl = await uploadImg.getDownloadURL();
+    } catch (error) {}
+  }
+
   void addAduanKehilangan(String nama_barang, String nama_pengadu,
-      String no_tlp, String deskripsi, String key) {
+      String no_tlp, String deskripsi, XFile image, String key) {
     String cdate2 = DateFormat("MMMM, dd, yyyy").format(DateTime.now());
 
     try {
@@ -23,6 +47,7 @@ class AddDataKehilanganController extends GetxController {
         "nama_barang": nama_barang,
         "nama_pengadu": nama_pengadu,
         "no_tlp": no_tlp,
+        "image": imgUrl,
         "deskripsi": deskripsi,
         "key_validasi": key,
         "date": cdate2

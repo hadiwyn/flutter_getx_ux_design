@@ -116,7 +116,9 @@ class AddDataKehilanganView extends GetView<AddDataKehilanganController> {
                       labelText: 'Foto Barang',
                     ),
                   ),
-                  ElevatedButton(onPressed: () {}, child: Text('Upload Foto')),
+                  ElevatedButton(
+                      onPressed: controller.getImage,
+                      child: Text('Upload Foto')),
                   TextFormField(
                     controller: controller.deskripsiC,
                     decoration: InputDecoration(
@@ -163,6 +165,7 @@ class AddDataKehilanganView extends GetView<AddDataKehilanganController> {
                                   controller.nama_pengaduC.text,
                                   controller.no_tlpC.text,
                                   controller.deskripsiC.text,
+                                  controller.imgFile!,
                                   controller.keyC.text);
                             }
                           },

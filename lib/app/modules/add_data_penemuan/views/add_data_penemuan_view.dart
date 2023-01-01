@@ -126,7 +126,9 @@ class AddDataPenemuanView extends GetView<AddDataPenemuanController> {
                     //   }
                     // },
                   ),
-                  ElevatedButton(onPressed: () {}, child: Text('Upload Foto')),
+                  ElevatedButton(
+                      onPressed: controller.getImage,
+                      child: Text('Upload Foto')),
                   TextFormField(
                     controller: controller.keteranganC,
                     decoration: InputDecoration(
@@ -173,6 +175,7 @@ class AddDataPenemuanView extends GetView<AddDataPenemuanController> {
                                   controller.nama_penemuC.text,
                                   controller.no_tlpC.text,
                                   controller.keteranganC.text,
+                                  controller.imgUrl,
                                   controller.keyC.text);
                             }
                           },
