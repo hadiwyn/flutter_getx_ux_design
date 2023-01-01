@@ -5,10 +5,17 @@ import 'package:get/get.dart';
 import '../controllers/add_data_penemuan_controller.dart';
 
 class AddDataPenemuanView extends GetView<AddDataPenemuanController> {
-  const AddDataPenemuanView({Key? key}) : super(key: key);
+  bool _autoValidate = false;
+
+  final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
+  final GlobalKey<ScaffoldState> _scaffoldkey = new GlobalKey<ScaffoldState>();
+
+  AddDataPenemuanView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        key: _scaffoldkey,
         appBar: AppBar(
           // title: const Text('AddDataKehilanganView'),
           centerTitle: true,
@@ -46,79 +53,135 @@ class AddDataPenemuanView extends GetView<AddDataPenemuanController> {
         elevation: 3,
         child: Container(
           padding: EdgeInsets.all(16.0),
-          height: 550,
+          height: 610,
           width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              TextFormField(
-                controller: controller.nama_barangC,
-                decoration: InputDecoration(
-                  icon: Icon(Icons.person),
-                  hintText: 'What do people call you?',
-                  labelText: 'Nama Barang',
-                ),
-              ),
-              TextFormField(
-                controller: controller.nama_penemuC,
-                decoration: InputDecoration(
-                  icon: Icon(Icons.person),
-                  hintText: 'What do people call you?',
-                  labelText: 'Nama Penemu',
-                ),
-              ),
-              TextFormField(
-                controller: controller.no_tlpC,
-                decoration: InputDecoration(
-                  icon: Icon(Icons.person),
-                  hintText: '62xxx',
-                  labelText: 'Nomor Telepon',
-                ),
-              ),
-              TextFormField(
-                decoration: InputDecoration(
-                  enabled: false,
-                  icon: Icon(Icons.person),
-                  hintText: 'What do people call you?',
-                  labelText: 'Foto Barang',
-                ),
-              ),
-              ElevatedButton(onPressed: () {}, child: Text('Upload Foto')),
-              TextFormField(
-                controller: controller.keteranganC,
-                decoration: InputDecoration(
-                  icon: Icon(Icons.person),
-                  hintText: 'Deskripsi singkat',
-                  labelText: 'Keterangan',
-                ),
-              ),
-              TextFormField(
-                controller: controller.keyC,
-                decoration: InputDecoration(
-                  icon: Icon(Icons.person),
-                  hintText: 'Digunakan untuk menghapus aduan',
-                  labelText: 'Kunci Penghapusan',
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
+          child: Form(
+            key: _formKey,
+            child: SingleChildScrollView(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  ElevatedButton(
-                      onPressed: () {
-                        controller.addAduanPenemuan(
-                            controller.nama_barangC.text,
-                            controller.nama_penemuC.text,
-                            controller.no_tlpC.text,
-                            controller.keteranganC.text,
-                            controller.keyC.text);
-                      },
-                      child: Text('Tambah')),
+                  TextFormField(
+                    controller: controller.nama_barangC,
+                    decoration: InputDecoration(
+                      icon: Icon(Icons.person),
+                      hintText: 'What do people call you?',
+                      labelText: 'Nama Barang',
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty ||
+                          !RegExp(r'[a-z A-Z]+$').hasMatch(value!)) {
+                        return "masukkan nama barang yang benar";
+                      } else {
+                        return null;
+                      }
+                    },
+                  ),
+                  TextFormField(
+                    controller: controller.nama_penemuC,
+                    decoration: InputDecoration(
+                      icon: Icon(Icons.person),
+                      hintText: 'What do people call you?',
+                      labelText: 'Nama Penemu',
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty ||
+                          !RegExp(r'[a-z A-Z]+$').hasMatch(value!)) {
+                        return "masukkan nama penemu yang benar";
+                      } else {
+                        return null;
+                      }
+                    },
+                  ),
+                  TextFormField(
+                    controller: controller.no_tlpC,
+                    decoration: InputDecoration(
+                      icon: Icon(Icons.person),
+                      hintText: '62xxx',
+                      labelText: 'Nomor Telepon',
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty ||
+                          !RegExp(r'^(?:[+62]62)?[0-9]{13}$')
+                              .hasMatch(value!)) {
+                        return "masukkan nomor telepon yang benar";
+                      } else {
+                        return null;
+                      }
+                    },
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      enabled: false,
+                      icon: Icon(Icons.person),
+                      hintText: 'What do people call you?',
+                      labelText: 'Foto Barang',
+                    ),
+                    // validator: (value) {
+                    //   if (value!.isEmpty ||
+                    //       !RegExp(r'[a-z A-Z]+$').hasMatch(value!)) {
+                    //     return "masukkan foto";
+                    //   } else {
+                    //     return null;
+                    //   }
+                    // },
+                  ),
+                  ElevatedButton(onPressed: () {}, child: Text('Upload Foto')),
+                  TextFormField(
+                    controller: controller.keteranganC,
+                    decoration: InputDecoration(
+                      icon: Icon(Icons.person),
+                      hintText: 'Deskripsi singkat',
+                      labelText: 'Keterangan',
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty ||
+                          !RegExp(r'[a-z A-Z]+$').hasMatch(value!)) {
+                        return "masukkan deskripsi yang benar";
+                      } else {
+                        return null;
+                      }
+                    },
+                  ),
+                  TextFormField(
+                    controller: controller.keyC,
+                    decoration: InputDecoration(
+                      icon: Icon(Icons.person),
+                      hintText: 'Digunakan untuk menghapus aduan',
+                      labelText: 'Kunci Penghapusan',
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty ||
+                          !RegExp(r'[a-z A-Z]+$').hasMatch(value!)) {
+                        return "masukkan kunci yang benar";
+                      } else {
+                        return null;
+                      }
+                    },
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      ElevatedButton(
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {
+                              controller.addAduanPenemuan(
+                                  controller.nama_barangC.text,
+                                  controller.nama_penemuC.text,
+                                  controller.no_tlpC.text,
+                                  controller.keteranganC.text,
+                                  controller.keyC.text);
+                            }
+                          },
+                          child: Text('Tambah')),
+                    ],
+                  )
                 ],
-              )
-            ],
+              ),
+            ),
           ),
         ));
   }

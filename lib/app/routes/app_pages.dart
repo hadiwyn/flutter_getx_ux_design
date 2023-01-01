@@ -35,12 +35,12 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.ADD_DATA_KEHILANGAN,
-      page: () => const AddDataKehilanganView(),
+      page: () => AddDataKehilanganView(),
       binding: AddDataKehilanganBinding(),
     ),
     GetPage(
       name: _Paths.ADD_DATA_PENEMUAN,
-      page: () => const AddDataPenemuanView(),
+      page: () => AddDataPenemuanView(),
       binding: AddDataPenemuanBinding(),
     ),
     GetPage(

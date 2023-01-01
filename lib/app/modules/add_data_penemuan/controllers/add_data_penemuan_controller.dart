@@ -11,12 +11,19 @@ class AddDataPenemuanController extends GetxController {
   late TextEditingController keteranganC;
   late TextEditingController keyC;
 
+  late GlobalKey<FormState> addDataPenemuan=GlobalKey<FormState>();
+
   DatabaseReference? dbRef;
 
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-  void addAduanPenemuan(String nama_barang, String nama_penemu, String no_tlp, String keterangan,
-      String key,) {
+  void addAduanPenemuan(
+    String nama_barang,
+    String nama_penemu,
+    String no_tlp,
+    String keterangan,
+    String key,
+  ) {
     String cdate2 = DateFormat("MMMM, dd, yyyy").format(DateTime.now());
 
     try {
