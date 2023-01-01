@@ -27,7 +27,7 @@ class AddDataPenemuanController extends GetxController {
         "nama_penemu": nama_penemu,
         "no_tlp": no_tlp,
         "keterangan": keterangan,
-        "key": key,
+        "key_validasi": key,
         "date": cdate2
       };
 

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_getx_ux/app/modules/detail_data_kehilangan/views/detail_data_kehilangan_view.dart';
 
 class ListVertical extends StatefulWidget {
-  ListVertical({super.key});
+  const ListVertical({super.key});
 
   @override
   State<ListVertical> createState() => _ListVerticalState();
@@ -12,6 +12,8 @@ class ListVertical extends StatefulWidget {
 
 class _ListVerticalState extends State<ListVertical> {
   Query dbRef = FirebaseDatabase.instance.ref().child('Data_Kehilangan');
+  DatabaseReference reference =
+      FirebaseDatabase.instance.ref().child('Data_Kehilangan');
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class _ListVerticalState extends State<ListVertical> {
     return Container(
       height: 110,
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 10),
+        padding: const EdgeInsets.only(bottom: 10, top: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -58,8 +60,8 @@ class _ListVerticalState extends State<ListVertical> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            DetailDataKehilanganView(Data_Kehilangan)));
+                        builder: (context) => DetailDataKehilanganView(
+                            Data_Kehilangan, reference)));
               },
               child: Container(
                 width: 260,

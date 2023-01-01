@@ -1,3 +1,4 @@
+import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
 
 import 'package:firebase_database/firebase_database.dart';
@@ -28,8 +29,9 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      body: Container(
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        controller: ScrollController(),
+        child: Container(
           child: Column(children: [
             Padding(
               padding: const EdgeInsets.only(left: 10),
@@ -127,7 +129,7 @@ class HomeView extends GetView<HomeController> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 1,
             ),
             SizedBox(height: 500, child: ListVertical())
           ]),

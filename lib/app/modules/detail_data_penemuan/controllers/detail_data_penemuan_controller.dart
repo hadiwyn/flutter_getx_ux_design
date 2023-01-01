@@ -1,11 +1,17 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class DetailDataController extends GetxController {
-  //TODO: Implement DetailDataController
+class DetailDataPenemuanController extends GetxController {
+  late TextEditingController kunci;
+
+  void coba(String key) {
+    print(key);
+  }
 
   final count = 0.obs;
   @override
   void onInit() {
+    kunci = TextEditingController();
     super.onInit();
   }
 

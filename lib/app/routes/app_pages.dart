@@ -4,6 +4,8 @@ import '../modules/add_data_kehilangan/bindings/add_data_kehilangan_binding.dart
 import '../modules/add_data_kehilangan/views/add_data_kehilangan_view.dart';
 import '../modules/add_data_penemuan/bindings/add_data_penemuan_binding.dart';
 import '../modules/add_data_penemuan/views/add_data_penemuan_view.dart';
+import '../modules/detail_data_penemuan/bindings/detail_data_penemuan_binding.dart';
+import '../modules/detail_data_penemuan/views/detail_data_penemuan_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/more_barang_ditemukan/bindings/more_barang_ditemukan_binding.dart';
@@ -51,6 +53,5 @@ class AppPages {
       page: () => const MoreBarangHilangView(),
       binding: MoreBarangHilangBinding(),
     ),
-    
   ];
 }

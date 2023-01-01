@@ -1,16 +1,21 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_getx_ux/app/modules/detail_data/views/detail_data_penemuan_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../detail_data_penemuan/views/detail_data_penemuan_view.dart';
+
 class ListHorizontal extends StatefulWidget {
+  const ListHorizontal({super.key});
+
   @override
   State<ListHorizontal> createState() => _ListHorizontalState();
 }
 
 class _ListHorizontalState extends State<ListHorizontal> {
   Query dbRef = FirebaseDatabase.instance.ref().child('Data_Penemuan');
+  DatabaseReference reference =
+      FirebaseDatabase.instance.ref().child('Data_Penemuan');
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +45,7 @@ class _ListHorizontalState extends State<ListHorizontal> {
                   context,
                   MaterialPageRoute(
                       builder: (context) =>
-                          DetailDataPenemuanView(Data_Penemuan)));
+                          DetailDataPenemuanView(Data_Penemuan, reference)));
               print(Data_Penemuan);
             },
             child: Container(

@@ -9,8 +9,8 @@ abstract class Routes {
   static const ADD_DATA_PENEMUAN = _Paths.ADD_DATA_PENEMUAN;
   static const MORE_BARANG_DITEMUKAN = _Paths.MORE_BARANG_DITEMUKAN;
   static const MORE_BARANG_HILANG = _Paths.MORE_BARANG_HILANG;
-  static const DETAIL_DATA = _Paths.DETAIL_DATA;
   static const DETAIL_DATA_KEHILANGAN = _Paths.DETAIL_DATA_KEHILANGAN;
+  static const DETAIL_DATA_PENEMUAN = _Paths.DETAIL_DATA_PENEMUAN;
 }
 
 abstract class _Paths {
@@ -21,6 +21,6 @@ abstract class _Paths {
   static const ADD_DATA_PENEMUAN = '/add-data-penemuan';
   static const MORE_BARANG_DITEMUKAN = '/more-barang-ditemukan';
   static const MORE_BARANG_HILANG = '/more-barang-hilang';
-  static const DETAIL_DATA = '/detail-data';
   static const DETAIL_DATA_KEHILANGAN = '/detail-data-kehilangan';
+  static const DETAIL_DATA_PENEMUAN = '/detail-data-penemuan';
 }

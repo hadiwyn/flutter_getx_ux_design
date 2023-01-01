@@ -5,6 +5,8 @@ import 'package:flutter_getx_ux/app/modules/detail_data_kehilangan/views/detail_
 
 class ListData extends StatefulWidget {
   Query dbRef = FirebaseDatabase.instance.ref().child('Data_Kehilangan');
+  DatabaseReference reference =
+      FirebaseDatabase.instance.ref().child('Data_Kehilangan');
 
   @override
   State<ListData> createState() => _ListDataState();
@@ -58,7 +60,7 @@ class _ListDataState extends State<ListData> {
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
-                            DetailDataKehilanganView(Data_Kehilangan)));
+                            DetailDataKehilanganView(Data_Kehilangan, widget.reference)));
               },
               child: Container(
                 width: 260,
@@ -180,6 +182,4 @@ class _ListDataState extends State<ListData> {
       ),
     );
   }
-
-
 }

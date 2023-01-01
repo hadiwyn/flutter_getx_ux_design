@@ -14,7 +14,6 @@ class AddDataKehilanganController extends GetxController {
 
   void addAduanKehilangan(String nama_barang, String nama_pengadu,
       String no_tlp, String deskripsi, String key) {
-
     String cdate2 = DateFormat("MMMM, dd, yyyy").format(DateTime.now());
 
     try {
@@ -25,7 +24,7 @@ class AddDataKehilanganController extends GetxController {
         "nama_pengadu": nama_pengadu,
         "no_tlp": no_tlp,
         "deskripsi": deskripsi,
-        "key": key,
+        "key_validasi": key,
         "date": cdate2
       };
 

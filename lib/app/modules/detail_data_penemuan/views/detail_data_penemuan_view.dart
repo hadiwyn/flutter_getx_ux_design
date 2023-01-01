@@ -1,20 +1,18 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../controllers/detail_data_kehilangan_controller.dart';
+import '../controllers/detail_data_penemuan_controller.dart';
 
-class DetailDataKehilanganView extends GetView<DetailDataKehilanganController> {
+class DetailDataPenemuanView extends GetView<DetailDataPenemuanController> {
   var Data;
-  var reference;
+  var Reference;
   var kunci_penghapusan;
   var validasi;
 
-  DetailDataKehilanganView(this.Data, this.reference, {super.key});
+  DetailDataPenemuanView(this.Data, this.Reference, {super.key});
 
   TextEditingController kunci = TextEditingController();
 
@@ -22,7 +20,7 @@ class DetailDataKehilanganView extends GetView<DetailDataKehilanganController> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Detail'),
+          title: const Text('Detail Barang Ditemukan'),
           centerTitle: true,
         ),
         body: Center(
@@ -155,7 +153,7 @@ class DetailDataKehilanganView extends GetView<DetailDataKehilanganController> {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Center(
-                  child: Text("Disini Gambar YAAA"),
+                  child: Text("Disini Ada Foto YAAA"),
                 ),
               ),
               Spacer(),
@@ -165,7 +163,7 @@ class DetailDataKehilanganView extends GetView<DetailDataKehilanganController> {
                 child: Row(
                   children: [
                     Text(
-                      "Deskripsi",
+                      "Keterangan Singkat",
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
@@ -194,7 +192,7 @@ class DetailDataKehilanganView extends GetView<DetailDataKehilanganController> {
                 child: Padding(
                   padding: const EdgeInsets.all(10),
                   child: Text(
-                    Data["deskripsi"],
+                    Data["keterangan"],
                     style: TextStyle(
                       fontSize: 12,
                     ),
@@ -222,9 +220,12 @@ class DetailDataKehilanganView extends GetView<DetailDataKehilanganController> {
                     ],
                     borderRadius: BorderRadius.circular(20),
                   ),
+                  // ignore: prefer_const_constructors
                   child: Center(
+                      // ignore: prefer_const_constructors
                       child: Text(
                     "Chat Lewat WA",
+                    // ignore: prefer_const_constructors
                     style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
@@ -241,7 +242,6 @@ class DetailDataKehilanganView extends GetView<DetailDataKehilanganController> {
   whatsApp() {
     return launchUrl(
       Uri.parse(
-        // 'https://wa.me/${Data["no_tlp"]}' //you use this url also
         'whatsapp://send?phone=${Data["no_tlp"]}', //put your number here
       ),
     );
@@ -264,7 +264,7 @@ class DetailDataKehilanganView extends GetView<DetailDataKehilanganController> {
           textConfirm: "Coba Lagi",
           confirmTextColor: Color.fromARGB(255, 255, 255, 255));
     } else {
-      reference.child(Data['key']).remove();
+      Reference.child(Data['key']).remove();
       Get.defaultDialog(
         title: "Berhasil",
         middleText: "Berhasil menghapus data",
@@ -276,6 +276,7 @@ class DetailDataKehilanganView extends GetView<DetailDataKehilanganController> {
         },
         textConfirm: "Oke",
       );
+      
     }
   }
 }
