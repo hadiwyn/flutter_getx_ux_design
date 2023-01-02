@@ -140,6 +140,12 @@ class DetailDataPenemuanView extends GetView<DetailDataPenemuanController> {
                 width: 280,
                 height: 150,
                 decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: Image.network(
+                      Data['image'],
+                    ).image,
+                  ),
                   color: Colors.white,
                   // ignore: prefer_const_literals_to_create_immutables
                   boxShadow: [
@@ -151,9 +157,6 @@ class DetailDataPenemuanView extends GetView<DetailDataPenemuanController> {
                     )
                   ],
                   borderRadius: BorderRadius.circular(20),
-                ),
-                child: Center(
-                  child: Text("Disini Ada Foto YAAA"),
                 ),
               ),
               Spacer(),
@@ -276,7 +279,6 @@ class DetailDataPenemuanView extends GetView<DetailDataPenemuanController> {
         },
         textConfirm: "Oke",
       );
-      
     }
   }
 }

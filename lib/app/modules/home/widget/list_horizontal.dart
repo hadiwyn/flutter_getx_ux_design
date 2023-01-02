@@ -78,8 +78,8 @@ class _ListHorizontalState extends State<ListHorizontal> {
                         color: Color(0xFFEEEEEE),
                         image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: Image.asset(
-                            'assets/image/dompet.png',
+                          image: Image.network(
+                            Data_Penemuan['image'],
                           ).image,
                         ),
                         borderRadius: BorderRadius.circular(20),

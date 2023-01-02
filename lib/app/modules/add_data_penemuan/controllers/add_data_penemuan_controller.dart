@@ -14,6 +14,7 @@ class AddDataPenemuanController extends GetxController {
   late TextEditingController keteranganC;
   late TextEditingController keyC;
   late String imgUrl;
+  late XFile? imgFile;
 
   late GlobalKey<FormState> addDataPenemuan = GlobalKey<FormState>();
 
@@ -25,7 +26,9 @@ class AddDataPenemuanController extends GetxController {
     final ImagePicker _picker = ImagePicker();
     final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
 
-    if (image == null) return;
+    if (image != null) {
+      imgFile = image;
+    }
     String uniqueName = DateTime.now().millisecondsSinceEpoch.toString();
 
     Reference ref = FirebaseStorage.instance.ref().child("images");
@@ -41,7 +44,7 @@ class AddDataPenemuanController extends GetxController {
     String nama_barang,
     String nama_penemu,
     String no_tlp,
-    String? image,
+    XFile image,
     String keterangan,
     String key,
   ) {

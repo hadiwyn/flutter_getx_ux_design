@@ -142,6 +142,12 @@ class DetailDataKehilanganView extends GetView<DetailDataKehilanganController> {
                 width: 280,
                 height: 150,
                 decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: Image.network(
+                      Data['image'],
+                    ).image,
+                  ),
                   color: Colors.white,
                   // ignore: prefer_const_literals_to_create_immutables
                   boxShadow: [
@@ -153,9 +159,6 @@ class DetailDataKehilanganView extends GetView<DetailDataKehilanganController> {
                     )
                   ],
                   borderRadius: BorderRadius.circular(20),
-                ),
-                child: Center(
-                  child: Text("Disini Gambar YAAA"),
                 ),
               ),
               Spacer(),

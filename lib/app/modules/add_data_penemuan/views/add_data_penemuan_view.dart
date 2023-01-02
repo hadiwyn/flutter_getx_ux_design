@@ -174,8 +174,8 @@ class AddDataPenemuanView extends GetView<AddDataPenemuanController> {
                                   controller.nama_barangC.text,
                                   controller.nama_penemuC.text,
                                   controller.no_tlpC.text,
+                                  controller.imgFile!,
                                   controller.keteranganC.text,
-                                  controller.imgUrl,
                                   controller.keyC.text);
                             }
                           },

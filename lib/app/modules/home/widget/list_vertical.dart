@@ -44,7 +44,7 @@ class _ListVerticalState extends State<ListVertical> {
                 color: Color(0xFFEEEEEE),
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: Image.asset('assets/image/dompet.png').image,
+                  image: Image.network(Data_Kehilangan['image']).image,
                 ),
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
