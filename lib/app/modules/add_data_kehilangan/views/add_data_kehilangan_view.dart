@@ -61,6 +61,7 @@ class AddDataKehilanganView extends GetView<AddDataKehilanganController> {
                 children: [
                   TextFormField(
                     controller: controller.nama_barangC,
+                    keyboardType: TextInputType.name,
                     decoration: InputDecoration(
                       icon: Icon(Icons.person),
                       hintText: 'masukkan nama barang',
@@ -77,6 +78,7 @@ class AddDataKehilanganView extends GetView<AddDataKehilanganController> {
                   ),
                   TextFormField(
                     controller: controller.nama_pengaduC,
+                    keyboardType: TextInputType.name,
                     decoration: InputDecoration(
                       icon: Icon(Icons.person),
                       hintText: 'masukkan nama pengadu',
@@ -93,6 +95,8 @@ class AddDataKehilanganView extends GetView<AddDataKehilanganController> {
                   ),
                   TextFormField(
                     controller: controller.no_tlpC,
+                    maxLength: 13,
+                    keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
                       icon: Icon(Icons.person),
                       hintText: '62xxx',

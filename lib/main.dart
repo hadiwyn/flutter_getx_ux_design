@@ -16,6 +16,7 @@ Future<void> main() async {
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Application",
+      theme: new ThemeData(scaffoldBackgroundColor: Color.fromARGB(255, 239, 239, 239)),
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
     ),
