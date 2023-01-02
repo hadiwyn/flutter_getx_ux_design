@@ -36,29 +36,41 @@ class MoreBarangHilangView extends GetView<MoreBarangHilangController> {
                   Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top: 10, bottom: 20),
+                        padding: const EdgeInsets.only(
+                            top: 10, bottom: 20, right: 15, left: 15),
                         child: Container(
-                          width: 355,
-                          height: 40,
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 6.0,
+                            horizontal: 12.0,
+                          ),
                           decoration: BoxDecoration(
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                blurRadius: 6,
-                                color: Color(0x34000000),
-                                offset: Offset(0, 3),
-                              )
-                            ],
-                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.grey[200],
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(20.0),
+                            ),
                           ),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Container(
-                                padding: const EdgeInsets.all(12),
-                                child: IconTheme(
-                                  data: IconThemeData(color: Colors.blueGrey),
-                                  child: Icon(Icons.search),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Icon(
+                                  Icons.search,
+                                  color: Colors.grey[500],
+                                ),
+                              ),
+                              Expanded(
+                                child: TextFormField(
+                                  initialValue: null,
+                                  decoration: InputDecoration.collapsed(
+                                    filled: true,
+                                    fillColor: Colors.transparent,
+                                    hintText: "What are you craving?",
+                                    hintStyle: TextStyle(
+                                      color: Colors.grey[500],
+                                    ),
+                                    hoverColor: Colors.transparent,
+                                  ),
+                                  onFieldSubmitted: (value) {},
                                 ),
                               ),
                             ],
