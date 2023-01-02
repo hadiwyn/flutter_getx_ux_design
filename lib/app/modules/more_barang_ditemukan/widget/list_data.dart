@@ -47,8 +47,8 @@ class _ListDataState extends State<ListData> {
                 color: Color(0xFFEEEEEE),
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: Image.asset(
-                    'assets/image/dompet.png',
+                  image: Image.network(
+                    Data_Penemuan['image'],
                   ).image,
                 ),
                 borderRadius: BorderRadius.circular(20),
@@ -63,8 +63,8 @@ class _ListDataState extends State<ListData> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            DetailDataPenemuanView(Data_Penemuan, widget.reference)));
+                        builder: (context) => DetailDataPenemuanView(
+                            Data_Penemuan, widget.reference)));
                 print(Data_Penemuan);
               },
               child: Container(

@@ -43,8 +43,8 @@ class _ListDataState extends State<ListData> {
                 color: Color(0xFFEEEEEE),
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: Image.asset(
-                    'assets/image/dompet.png',
+                  image: Image.network(
+                    Data_Kehilangan['image'],
                   ).image,
                 ),
                 borderRadius: BorderRadius.circular(20),
@@ -59,8 +59,8 @@ class _ListDataState extends State<ListData> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            DetailDataKehilanganView(Data_Kehilangan, widget.reference)));
+                        builder: (context) => DetailDataKehilanganView(
+                            Data_Kehilangan, widget.reference)));
               },
               child: Container(
                 width: 260,
