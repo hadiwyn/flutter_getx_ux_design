@@ -19,6 +19,18 @@ class AddDataPenemuanView extends GetView<AddDataPenemuanController> {
         appBar: AppBar(
           // title: const Text('AddDataKehilanganView'),
           centerTitle: true,
+          iconTheme: IconThemeData(
+            color: Colors.blueGrey, //change your color here
+          ),
+          backgroundColor: Color.fromARGB(255, 239, 239, 239),
+          elevation: 0,
+          title: Text(
+            ' Aduan Penemuan',
+            style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF315F43)),
+          ),
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -27,24 +39,10 @@ class AddDataPenemuanView extends GetView<AddDataPenemuanController> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: [judul(), content()],
+              children: [content()],
             ),
           ),
         ));
-  }
-
-  Widget judul() {
-    return Container(
-      alignment: Alignment.center,
-      height: 75,
-      child: Text(
-        'Tambah Aduan Penemuan',
-        style: TextStyle(
-          fontSize: 25,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    );
   }
 
   Widget content() {
@@ -110,23 +108,14 @@ class AddDataPenemuanView extends GetView<AddDataPenemuanController> {
                       }
                     },
                   ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      enabled: false,
-                      icon: Icon(Icons.person),
-                      hintText: 'foto barang',
-                      labelText: 'Foto Barang',
-                    ),
-                    // validator: (value) {
-                    //   if (value!.isEmpty ||
-                    //       !RegExp(r'[a-z A-Z]+$').hasMatch(value!)) {
-                    //     return "masukkan foto";
-                    //   } else {
-                    //     return null;
-                    //   }
-                    // },
+                  SizedBox(
+                    height: 30,
                   ),
                   ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStatePropertyAll<Color>(Color(0xFF315F43)),
+                      ),
                       onPressed: controller.getImage,
                       child: Text('Upload Foto')),
                   TextFormField(
@@ -162,12 +151,16 @@ class AddDataPenemuanView extends GetView<AddDataPenemuanController> {
                     },
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 50,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStatePropertyAll<Color>(
+                                Color(0xFF315F43)),
+                          ),
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
                               controller.addAduanPenemuan(

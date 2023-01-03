@@ -15,8 +15,20 @@ class AddDataKehilanganView extends GetView<AddDataKehilanganController> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          // title: const Text('AddDataKehilanganView'),
+          title: Text(
+            'Aduan Kehilangan',
+            style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF315F43),
+            ),
+          ),
           centerTitle: true,
+          iconTheme: IconThemeData(
+            color: Colors.blueGrey, //change your color here
+          ),
+          backgroundColor: Color.fromARGB(255, 239, 239, 239),
+          elevation: 0,
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -25,24 +37,10 @@ class AddDataKehilanganView extends GetView<AddDataKehilanganController> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: [judul(), content()],
+              children: [content()],
             ),
           ),
         ));
-  }
-
-  Widget judul() {
-    return Container(
-      alignment: Alignment.center,
-      height: 75,
-      child: Text(
-        'Tambah Aduan Kehilangan',
-        style: TextStyle(
-          fontSize: 25,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    );
   }
 
   Widget content() {
@@ -112,15 +110,12 @@ class AddDataKehilanganView extends GetView<AddDataKehilanganController> {
                       }
                     },
                   ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      enabled: false,
-                      icon: Icon(Icons.person),
-                      hintText: 'foto barang',
-                      labelText: 'Foto Barang',
-                    ),
-                  ),
+                  SizedBox(height: 30),
                   ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStatePropertyAll<Color>(Color(0xFF315F43)),
+                      ),
                       onPressed: controller.getImage,
                       child: Text('Upload Foto')),
                   TextFormField(
@@ -156,12 +151,16 @@ class AddDataKehilanganView extends GetView<AddDataKehilanganController> {
                     },
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 50,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStatePropertyAll<Color>(
+                                Color(0xFF315F43)),
+                          ),
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
                               controller.addAduanKehilangan(

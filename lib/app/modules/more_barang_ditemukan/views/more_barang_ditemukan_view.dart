@@ -15,7 +15,7 @@ class MoreBarangDitemukanView extends GetView<MoreBarangDitemukanController> {
           iconTheme: IconThemeData(
             color: Colors.blueGrey, //change your color here
           ),
-          backgroundColor: Color.fromARGB(255, 255, 255, 255),
+          backgroundColor: Color.fromARGB(255, 239, 239, 239),
           elevation: 0,
           centerTitle: true,
           // ignore: prefer_const_constructors

@@ -131,13 +131,14 @@ class HomeView extends GetView<HomeController> {
             SizedBox(
               height: 1,
             ),
-            SizedBox(height: 500, child: ListVertical())
+            SizedBox(height: 260, child: ListVertical())
           ]),
         ),
       ),
       floatingActionButton: Visibility(
           visible: true,
           child: FloatingActionButton(
+            backgroundColor: Color(0xFF4C874F),
             onPressed: () {
               Navigator.push(
                 context,
