@@ -49,7 +49,7 @@ class _ListHorizontalState extends State<ListHorizontal> {
               print(Data_Penemuan);
             },
             child: Container(
-              width: 323,
+              width: 325,
               height: 295,
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -136,59 +136,67 @@ class _ListHorizontalState extends State<ListHorizontal> {
                     padding: EdgeInsetsDirectional.fromSTEB(15, 25, 15, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
                       // ignore: prefer_const_literals_to_create_immutables
                       children: [
                         // ignore: prefer_const_constructors
-                        Image.asset(
-                          "assets/icons/label.png",
-                          height: 16,
-                        ),
-                        // ignore: prefer_const_constructors
-                        Padding(
-                          // ignore: prefer_const_constructors
-                          padding: EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
-                          // ignore: prefer_const_constructors
-                          child: Text(
-                            Data_Penemuan["nama_penemu"],
-                            style: GoogleFonts.inter(fontSize: 12),
-                            // "${(listAllDocument[index].data() as Map<String, dynamic>)["harga"]}",
-                            // // ignore: prefer_const_constructors
-                            // style: TextStyle(
-                            //   fontFamily: 'Lexend Deca',
-                            //   fontSize: 12,
-                            //   fontWeight: FontWeight.w300,
-                            // ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 89,
-                        ),
-                        // ignore: prefer_const_constructors
-                        Padding(
-                            padding: EdgeInsets.only(
-                              left: 10,
-                            ),
-                            child: Image.asset(
-                              "assets/icons/date_add.png",
+                        Row(
+                          children: [
+                            Image.asset(
+                              "assets/icons/label.png",
                               height: 16,
-                            )),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
-                          child: Text(
-                            Data_Penemuan["date"],
-                            style: GoogleFonts.inter(fontSize: 12),
-                            // ignore: prefer_interpolation_to_compose_strings
-                            // "${(listAllDocument[index].data() as Map<String, dynamic>)["time"]}",
-                            // // ignore: prefer_const_constructors
-                            // style: TextStyle(
-                            //   fontFamily: 'Lexend Deca',
-                            //   fontSize: 12,
-                            //   fontWeight: FontWeight.w300,
-                            // ),
-                          ),
+                            ),
+                            // ignore: prefer_const_constructors
+                            Padding(
+                              // ignore: prefer_const_constructors
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
+                              // ignore: prefer_const_constructors
+                              child: Text(
+                                Data_Penemuan["nama_penemu"],
+                                style: GoogleFonts.inter(fontSize: 12),
+                                // "${(listAllDocument[index].data() as Map<String, dynamic>)["harga"]}",
+                                // // ignore: prefer_const_constructors
+                                // style: TextStyle(
+                                //   fontFamily: 'Lexend Deca',
+                                //   fontSize: 12,
+                                //   fontWeight: FontWeight.w300,
+                                // ),
+                              ),
+                            ),
+                          ],
                         ),
+
+                        // ignore: prefer_const_constructors
+                        Row(
+                          children: [
+                            Padding(
+                                padding: EdgeInsets.only(
+                                  left: 10,
+                                ),
+                                child: Image.asset(
+                                  "assets/icons/date_add.png",
+                                  height: 16,
+                                )),
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
+                              child: Text(
+                                Data_Penemuan["date"],
+                                style: GoogleFonts.inter(fontSize: 12),
+                                // ignore: prefer_interpolation_to_compose_strings
+                                // "${(listAllDocument[index].data() as Map<String, dynamic>)["time"]}",
+                                // // ignore: prefer_const_constructors
+                                // style: TextStyle(
+                                //   fontFamily: 'Lexend Deca',
+                                //   fontSize: 12,
+                                //   fontWeight: FontWeight.w300,
+                                // ),
+                              ),
+                            ),
+                          ],
+                        )
                         // igčore: prefer_const_constructors
                       ],
                     ),

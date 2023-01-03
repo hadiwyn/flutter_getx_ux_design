@@ -61,7 +61,7 @@ class AddDataKehilanganView extends GetView<AddDataKehilanganController> {
                     controller: controller.nama_barangC,
                     keyboardType: TextInputType.name,
                     decoration: InputDecoration(
-                      icon: Icon(Icons.person),
+                      icon: Icon(Icons.business_center_outlined),
                       hintText: 'masukkan nama barang',
                       labelText: 'Nama Barang',
                     ),
@@ -96,7 +96,7 @@ class AddDataKehilanganView extends GetView<AddDataKehilanganController> {
                     maxLength: 13,
                     keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
-                      icon: Icon(Icons.person),
+                      icon: Icon(Icons.phone),
                       hintText: '62xxx',
                       labelText: 'Nomor Telepon',
                     ),
@@ -110,18 +110,36 @@ class AddDataKehilanganView extends GetView<AddDataKehilanganController> {
                       }
                     },
                   ),
-                  SizedBox(height: 30),
-                  ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStatePropertyAll<Color>(Color(0xFF315F43)),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Container(
+                    child: TextFormField(
+                      enabled: false,
+                      readOnly: true,
+                      controller: controller.imgC,
+                      decoration: InputDecoration(
+                        hintText: 'foto belum diupload',
+                        border: OutlineInputBorder(),
                       ),
-                      onPressed: controller.getImage,
-                      child: Text('Upload Foto')),
+                    ),
+                  ),
+                  Container(
+                    child: ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStatePropertyAll<Color>(
+                              Color(0xFF315F43)),
+                        ),
+                        onPressed: controller.getImage,
+                        child: Text(
+                          'Upload Foto',
+                          textAlign: TextAlign.center,
+                        )),
+                  ),
                   TextFormField(
                     controller: controller.deskripsiC,
                     decoration: InputDecoration(
-                      icon: Icon(Icons.person),
+                      icon: Icon(Icons.description_outlined),
                       hintText: 'masukkan deskripsi',
                       labelText: 'Deskripsi',
                     ),
@@ -137,7 +155,7 @@ class AddDataKehilanganView extends GetView<AddDataKehilanganController> {
                   TextFormField(
                     controller: controller.keyC,
                     decoration: InputDecoration(
-                      icon: Icon(Icons.person),
+                      icon: Icon(Icons.key_outlined),
                       hintText: 'digunakan untuk menghapus aduan',
                       labelText: 'Kunci Penghapusan',
                     ),

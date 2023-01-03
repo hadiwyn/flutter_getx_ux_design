@@ -13,6 +13,7 @@ class AddDataPenemuanController extends GetxController {
   late TextEditingController no_tlpC;
   late TextEditingController keteranganC;
   late TextEditingController keyC;
+  late TextEditingController imgC;
   late String imgUrl;
   late XFile? imgFile;
 
@@ -28,6 +29,7 @@ class AddDataPenemuanController extends GetxController {
 
     if (image != null) {
       imgFile = image;
+      imgC.text = image.name;
     }
     String uniqueName = DateTime.now().millisecondsSinceEpoch.toString();
 
@@ -96,6 +98,7 @@ class AddDataPenemuanController extends GetxController {
     no_tlpC = TextEditingController();
     keteranganC = TextEditingController();
     keyC = TextEditingController();
+    imgC = TextEditingController();
     super.onInit();
   }
 

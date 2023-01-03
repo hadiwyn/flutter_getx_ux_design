@@ -13,6 +13,7 @@ class AddDataKehilanganController extends GetxController {
   late TextEditingController no_tlpC;
   late TextEditingController deskripsiC;
   late TextEditingController keyC;
+  late TextEditingController imgC;
   late String imgUrl = "";
   late XFile? imgFile;
 
@@ -24,7 +25,9 @@ class AddDataKehilanganController extends GetxController {
 
     if (image != null) {
       imgFile = image;
+      imgC.text = image.name;
     }
+
     String uniqueName = DateTime.now().millisecondsSinceEpoch.toString();
 
     Reference ref = FirebaseStorage.instance.ref().child("images");
@@ -86,6 +89,7 @@ class AddDataKehilanganController extends GetxController {
     no_tlpC = TextEditingController();
     deskripsiC = TextEditingController();
     keyC = TextEditingController();
+    imgC = TextEditingController();
     dbRef;
     super.onInit();
   }
